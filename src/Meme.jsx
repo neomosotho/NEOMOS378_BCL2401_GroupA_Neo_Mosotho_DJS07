@@ -18,6 +18,18 @@ export default function Meme() {
         .then((data) => setAllMemes(data.data.memes))
       }, []) 
 
+    // Function to get a new random meme image from the allMemes array.
+    function getMemeImage() {
+        const randomNumber = Math.floor(Math.random() * allMemes.length);
+        const url = allMemes[randomNumber].url;
+        setMeme((prevMeme) => ({
+          ...prevMeme,
+          randomImage: url,
+          topText: "",
+          bottomText: "",
+        }));
+      }
+
     return (
         <main>
             <form className="form">
