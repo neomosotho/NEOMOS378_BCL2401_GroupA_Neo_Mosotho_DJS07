@@ -8,6 +8,8 @@ export default function Meme() {
         randomImage: "https://i.imgflip.com/1ur9b0.jpg",
     });
 
+    // Initialize state for storing all memes fetched from the API.
+    const [allMemes, setAllMemes] = React.useState([]);
 
     return (
         <main>
