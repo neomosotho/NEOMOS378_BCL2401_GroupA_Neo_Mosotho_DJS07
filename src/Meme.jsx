@@ -11,6 +11,13 @@ export default function Meme() {
     // Initialize state for storing all memes fetched from the API.
     const [allMemes, setAllMemes] = React.useState([]);
 
+    // Using React.useEffect to fetch meme data from the API.
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then((res) => res.json())
+        .then((data) => setAllMemes(data.data.memes))
+      }, []) 
+
     return (
         <main>
             <form className="form">
