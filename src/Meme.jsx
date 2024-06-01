@@ -30,7 +30,7 @@ export default function Meme() {
     }));
   }
 
-  // Handle changes to input fields. 
+  // Handle changes to input fields.
   function handleChange(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => ({
@@ -42,11 +42,27 @@ export default function Meme() {
   return (
     <main>
       <div className="form">
-        <input type="text" placeholder="Top text" className="form--input" />
+        <input
+          type="text"
+          placeholder="Top text"
+          className="form--input"
+          name="topText"
+          value={meme.topText}
+          onChange={handleChange}
+        />
 
-        <input type="text" placeholder="Bottom text" className="form--input" />
+        <input
+          type="text"
+          placeholder="Bottom text"
+          className="form--input"
+          name="bottomText"
+          value={meme.bottomText}
+          onChange={handleChange}
+        />
 
-        <button className="form--button" onClick={getMemeImage}>Get a new meme image 🖼️</button>
+        <button className="form--button" onClick={getMemeImage}>
+          Get a new meme image 🖼️
+        </button>
       </div>
       <div className="meme">
         <img src={meme.randomImage} className="meme--image" />
